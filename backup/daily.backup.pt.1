@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo -n "Daily backup starting at " >> logs/backup.log
+echo `date` >> logs/backup.log
+
+# Get rid of extraneous files
+rm -f files/players/backup_write
+rm -f files/rooms/keys.b
+
+# Now collect all the files together
+tar cf daily-backup.tar files/notes files/players files/rooms
+
+# NB, we do *NOT* compress them here as that takes too long, it is done in
+# the other backup script that is run as a seperate process so we don't
+# pause the server for too long.

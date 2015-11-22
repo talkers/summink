@@ -1,0 +1,90 @@
+Help file for Advanced SUs [By Nicolai]:
+su,se,se:,st <something> - Talk on SU channel
+
+su_hi - Toggle highlighting of the su channel (assuming hitells is set)
+
+assist <name> - Inform a newbie you are a superuser willing to help
+	them, and other SUs that you are assisting them.
+
+boot - boots someone from the beach. They get dumped in jetty.wreck
+	and are unable to "leave" for a couple of minutes.
+
+banish <name> - banishes <name> permanently from this talker. Anyone
+	attempting to use <name> will get a blunt message.
+
+blankpass <name> [password] - blanks <name>'s password or set it.
+	This is case sensitive.
+
+blank_email <name> - blanks <name>'s email address. It will not then be
+	valid. USE WITH GREAT CARE. CHARACTERS WITH BLANK EMAIL MAY
+	NOT NOW BE SAVED. BE CAREFUL WITH CONFIRM AND blank_email.
+	Preferably use validate_email to blank it without the risk
+	of the char getting blown away, if you can.
+
+colony <name>
+	throws <name> in the colony
+
+confirm <name> - Check if a resident has set password and email. Note
+	those who have not will not be saved.
+
+drag <name> - eject a newbie, only, from this talker. They are removed by
+	a large wave.
+
+frog <name>
+	'frog's <name>. they cannot say or emote or shout, etc, anything
+	except various froggy noises. use with care. it is a saved flag.
+
+splat <name> [<time>] - Resident and newbie only, eject from program
+	and ban them for upto 5 mins optional <time>
+
+list_su - list current SUs, duty status, and rank.
+
+list_new - lists the current newbies
+
+reset_session - reset the session timer to 0.
+
+resident <name> - make a newbie resident.
+
+jail <name> [<time>]
+	throws <name> in jail, system.prison for <time>, default 1 minute.
+	They cannot leave or do an awful lot except say and emote.
+
+list_res <letter>  - lists all residents with names starting<letter>,
+	the hash chain they are on, and the saved flags set.
+
+nuke <name> - removes <name> from program, and deletes their character
+	completely.
+
+reset_sneeze <name> - resets the timeout for <name> after sneeze.
+
+remove_shout <name> <time> - removes <name>'s ability to shout for
+	<time> mins (-1 is forever).
+
+unfrog <name> - unfrogs them, surprise surprise.
+
+rename <name> <name2> - changes a newbie's name from <name> to <name2>.
+
+sneeze <names> <time> - throws <names> (can be a list) out for optional
+	<time>. They get disconnected with a sarky message.
+
+splat <name> <time> - sneezes <name> and bans all logins from same site
+	as <name> for <time>. Anyone who tries gets a message saying try
+	again later.
+
+site <name|IPaddr> - lists those connected from the same site (assumed to be
+	a class B net) as <name>, or from any numeric <IPaddr>.
+
+unfrog <name> - unfrogs them, surprise surprise.
+
+unjail <name> - retrieves them from system.prison.
+
+unsplat - resets a splat timeout.
+
+unconverse - forcibly remove someone from converse mode. They
+	get told so.
+
+validate_email <name> - set <name>'s email address as null yet valid.
+
+warn - give someone an official warning. it is logged and broadcast
+	to the SU channel.
+

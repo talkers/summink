@@ -1,0 +1,343 @@
+#!/bin/sh
+# $Id: suntype,v 2.1 1994/04/18 21:39:17 jdd Exp $
+# 
+# suntype: Figure out what sort of sun this is.
+#
+# Version 2.0   April 16, 1994
+# John DiMarco <jdd@cdf.toronto.edu>
+# University of Toronto, Computing Disciplines Facility
+
+PATH="/bin:/usr/bin:/usr/etc:/usr/sbin:/usr/ucb"; export PATH
+VERBOSE="VERBOSE no"
+if [ $# -gt 0 ]; then
+        if [ $1 = "-v" ]; then
+                VERBOSE="VERBOSE yes"
+        else
+                echo "Usage $0 [-v]" 1>&2
+                exit 3
+        fi
+fi
+export VERBOSE
+
+# misc function definitions
+get_hostid() {
+  # Output the host id, if possible
+  echo HOSTID
+  if [ -x /usr/bin/hostid ]; then
+    /usr/bin/hostid 2>/dev/null
+  elif [ -x /usr/ucb/hostid ]; then
+    /usr/ucb/hostid 2>/dev/null
+  fi
+}
+get_prominfo() {
+  # Output the output of prtconf/devinfo -pv, if possible
+  echo PROMINFO
+  if [ -x /usr/sbin/prtconf ]; then
+    /usr/sbin/prtconf -pv 2>/dev/null
+  elif [ -x /usr/etc/devinfo ]; then
+    /usr/etc/devinfo -pv 2>/dev/null
+  fi
+}
+
+(
+echo $VERBOSE
+cat <<END_OF_TABLE
+#
+# ID = model code from hostid.
+# DEV_NAME = Sun internal development name
+# SYSTEM_NAME = System name
+# MODEL_NAME = Model name(s)
+# CLK = CLock speed
+# CPU_NAME = name of CPU (Integer Unit)
+# 		NB: cpu name in table may not always be correct.
+# 
+# This data is overridden by prtconf/devinfo -pv data, if available.
+#
+ID DEV_NAME    SYSTEM_NAME          MODEL_NAME           CLK  CPU_NAME (IU)
+## ########### #################### #################### #### #################
+01 unknown     2/100                100U,150U,120,170    10   Motorola,MC68010
+02 unknown     2/50                 50,130,160           10   Motorola,MC68010
+11 Carrera     3/100                75,140,150,160,180   16.7 Motorola,MC68020
+12 M25         3/50                 _NA                  12.5 Motorola,MC68020
+13 Sirius      3/200                260,280              25   Motorola,MC68020
+14 Prism       3/110                _NA                  16.7 Motorola,MC68020
+17 Ferrari     3/60                 _NA                  20   Motorola,MC68020
+18 unknown     3E                   _NA                  ??   Motorola,MC68020
+21 Sunrise     4/200                260,280              16.7 Fujitsu,MB86903
+22 Cobra       4/100                110,150              14.2 Fujitsu,SF9010
+23 Stingray    4/300                310,330,370,390      25   Cypress,CY7C601
+24 Sunray      4/400                470,490              33   Cypress,CY7C601
+31 RoadRunner  386i                 150,250              ??   Intel,80386DX
+32 Apache      486i                 unknown              ??   Intel,80486DX
+41 Pegasus     3/400                470,490              33   Motorola,MC68030
+42 Hydra       3/80                 _NA                  20   Motorola,MC68030
+51 Campus      SPARCstation-1       4/60                 20   LSI,L64801
+52 Phoenix     SPARCstation-IPC     4/40                 25   LSI,L64801
+53 CampusB     SPARCstation-1+      4/65                 25   LSI,L64801
+54 OffCampus   SPARCstation-SLC     4/20                 20   LSI,L64801
+55 Calvin      SPARCstation-2       4/75                 40   Cypress,CY7C601
+56 NodeWarrior SPARCstation-ELC     4/25                 33   Weitek,W8601
+57 Hobbes      SPARCstation-IPX     4/50                 40   Weitek,W8601
+61 Polaris     4E                   _NA                  ??   unknown,SPARC
+71 Galaxy      SPARCsystem-600      _MBUS                40   unknown
+72 Campus2     SPARCstation-10      _MBUS                40   unknown
+72 Kodiak      SPARCstation-20      _MBUS                50   unknown
+80 Sunergy     SPARCclassic         4/15                 50   TI,TMS390S10
+80 Sunergy     SPARCstation-LX      4/30                 50   TI,TMS390S10
+80 Aurora      SPARCstation-5       _SS5                 ??   unknown,SPARC
+80 Gypsy       SPARCstation-Voyager S240                 60   unknown,SPARC
+80 Scorpion    SPARCserver-1000     _XDBUS               40   unknown
+80 Dragon      SPARCcenter-2000     _XDBUS               40   unknown
+END_OF_TABLE
+get_hostid
+get_prominfo
+) | awk '
+BEGIN {
+  #
+  # SS10/20/600 type table:
+  # Maps from module clock rate to system name.
+  #
+  mtype[33]=2 
+  mtype[36]=3
+  mtype[40]=4
+  mtype[50]=5
+  mtype[60]=6
+  #
+  # Some constants
+  #
+  MB=1048576
+  KB=1024
+  M=1000000
+  ROSS="Ross 605 SPARC"
+  #
+  # Maps from reported processor name to generic processor name
+  #
+  ptype["Motorola,MC68010"]="68K"
+  ptype["Motorola,MC68020"]="68K"
+  ptype["Motorola,MC68030"]="68K"
+  ptype["Intel,80386DX"]="x86"
+  ptype["Intel,80386DX"]="x86"
+  ptype["Fujitsu,MB86900IU"]="SPARC"
+  ptype["Fujitsu,SF9010IU"]="SPARC"
+  ptype["Cypress,CY7C601"]="SPARC"
+  ptype["Weitek,W8601"]="SPARC"
+  ptype["LSI,L64811"]="SPARC"
+  ptype["TI,TMS390S10"]="MicroSPARC I"
+  ptype["TI,TMS390Z50"]="SuperSPARC"
+  ptype["TI,TMS390Z55"]="SuperSPARC"
+  ptype["Cypress,CY605"]=ROSS
+  ptype["Ross,RT605"]=ROSS
+  ptype["Ross,RT625"]="HyperSPARC"
+}
+$1~/^#/ { continue }
+$1=="VERBOSE" { verbose=$2; continue }
+$1=="ID" || $1=="PROMINFO" || $1=="HOSTID" { mode=$1; continue }
+mode=="ID" {
+  #
+  # read a line of the ID table
+  #
+  nlines++
+  hostidcode[nlines]=$1
+  id[$1]=nlines
+  devname[nlines]=$2
+  sysname[nlines]=$3
+  model[nlines]=$4
+  clk[nlines]=$5
+  cpu[nlines]=$6
+  nm[$3]=nlines
+}
+mode=="HOSTID" {
+  hostid=substr($1,0,2)
+}
+mode=="PROMINFO" {
+  if($1=="idprom:"){
+    # get hostid code from here if it is not already defined
+    if(!hostid){
+      hostid=substr($2, 2, 2)
+    }
+  } else if($1=="clock-frequency:"){
+    # convert clock frequency from hex to decimal
+    pwr=1;
+    clock=0;
+    for(i=8;i>0;i--){
+      digit=substr($2, i, 1);
+      if("a"==digit) digit=10;
+      else if("b"==digit) digit=11;
+      else if("c"==digit) digit=12;
+      else if("d"==digit) digit=13;
+      else if("e"==digit) digit=14;
+      else if("f"==digit) digit=15;
+      clock += digit*pwr;
+      pwr *= 16;
+    }
+    if(!systemclock) systemclock=clock/M
+  } else if($1=="ecache-line-size:" || $1=="cache-line-size:"){
+    # again, hex to dec. If I was using nawk, I would make
+    # this a function, but early SunOS is nawkless
+    pwr=1;
+    clinesize=0;
+    for(i=8;i>0;i--){
+      digit=substr($2, i, 1);
+      if("a"==digit) digit=10;
+      else if("b"==digit) digit=11;
+      else if("c"==digit) digit=12;
+      else if("d"==digit) digit=13;
+      else if("e"==digit) digit=14;
+      else if("f"==digit) digit=15;
+      clinesize += digit*pwr;
+      pwr *= 16;
+    }
+  } else if($1=="ecache-nlines:" || $1=="cache-nlines:"){
+    # again, hex to dec. If I was using nawk, I would make
+    # this a function, but early SunOS is nawkless
+    pwr=1;
+    cnlines=0;
+    for(i=8;i>0;i--){
+      digit=substr($2, i, 1);
+      if("a"==digit) digit=10;
+      else if("b"==digit) digit=11;
+      else if("c"==digit) digit=12;
+      else if("d"==digit) digit=13;
+      else if("e"==digit) digit=14;
+      else if("f"==digit) digit=15;
+      cnlines += digit*pwr;
+      pwr *= 16;
+    }
+  } else if($1=="name:"){
+    # process name:
+    # first, concatenate all the pieces
+    name=$2
+    for(i=3;i<=NF;i++) name=name" "$i
+
+    # strip off end quotes
+    name = substr(name, 2, length(name)-2)
+
+    # strip off leading "SUNW," if present
+    if("SUNW,"==substr(name, 1, 5))
+      name=substr(name, 6, length(name)-5)
+
+    # strip off leading "Sun " if present
+    if("Sun "==substr(name, 1, 4))
+      name=substr(name, 5, length(name)-4)
+
+    if(!systemname){
+      # the first "name:" is the system name
+      systemname = name
+    }
+  } else if($1=="device_type:"){
+    if("cpu" == substr($2,2,3)){
+      iscpu="yes"
+      cpucount++
+    }
+  } else if($1=="Node"){
+    if("yes"==iscpu){
+      if(clock) {
+        cpuclock=clock/M
+      } else {
+        cpuclock=systemclock
+      }
+      cpucache=clinesize*cnlines
+      cpuname=name
+    }
+    iscpu="no"
+    clock=0
+  }
+}
+END{
+  # process last remaining cpu, if applicable
+  if("yes"==iscpu){
+      if(clock) {
+        cpuclock=clock/M
+      } else {
+        cpuclock=systemclock
+      }
+      cpucache=clinesize*cnlines
+      cpuname=name
+  }
+
+  if(0==cpucount) cpucount=1
+
+  if(hostid<"80" && "72"!=hostid) {
+    # look up hostid in table
+    if(id[hostid]) {
+      developname=devname[id[hostid]]
+      modelname=model[id[hostid]]
+      if (!cpuname) cpuname=cpu[id[hostid]]
+      if (!systemname || systemname==modelname) systemname=sysname[id[hostid]]
+      if (!cpuclock) cpuclock=clk[id[hostid]]
+    }
+  } else {
+    # look up system name in table
+    if(systemname) {
+      if(nm[systemname]){
+        developname=devname[nm[systemname]]
+        modelname=model[nm[systemname]]
+        if (!cpuname) cpuname=cpu[id[hostid]]
+        if (!cpuclock) cpuclock=clk[id[hostid]]
+      }
+    }
+  }
+  if(!cpucount) cpucount=1
+  # Compute known model names. 
+  if("_MBUS" == modelname){
+    # SS10/20/600: Ross 605 or SuperSPARC processors. 
+    if(ROSS==ptype[cpuname]) {
+      modelname=1""cpucount""0
+    } else if("SuperSPARC"==ptype[cpuname]){
+      if(cpucount==1) cpucount=""
+      if(mtype[cpuclock]) {
+        modelname=mtype[cpuclock]""cpucache/MB""cpucount
+      } 
+    }
+    if("_MBUS" == modelname) modelname = "unknown"
+  } else if("_SS5" == modelname){
+    # SPARCstation 5: modelname is simply the CPU clock rate
+    modelname=cpuclock
+  } else if ("_XDBUS" == modelname){
+    # SPARCcenter 1000 or 2000.
+    ccount=cpucount; if(ccount<10) ccount="0"ccount
+    modelname=substr(systemname,13,1)""cpucache/MB""ccount
+  } 
+
+  if(!systemname) systemname="unknown"
+  if(!modelname) modelname=systemname
+  if(!developname) developname="unknown"
+  if(!cpuname) cpuname="unknown"
+  if(!cpuclock) cpuclock="unknown"
+
+  if(ptype[cpuname]) cpuname=cpuname" ("ptype[cpuname]")"
+  if(cpucache) {
+    if(cpucache>=MB) {
+      cpucache=cpucache/MB" MB"
+    } else {
+      cpucache=cpucache/KB" KB"
+    }
+  }
+  if(!systemclock) systemclock=cpuclock
+  if("yes"==verbose){
+    # output what we have discovered
+    print "System name:", systemname
+    print "Development name:", developname
+    if("_NA"!=modelname) print "Model:", modelname
+    print "Number of cpus:", cpucount
+    print "Cpu name:", cpuname
+    if(systemclock == cpuclock) {
+      print "Clock rate (MHz):", cpuclock
+    } else {
+      print "System clock rate (MHz):", systemclock
+      print "Cpu clock rate (MHz):", cpuclock
+    }
+    if(cpucache) print "External cache:", cpucache
+  } else {
+    if("_NA"==modelname) {
+      modelname=""
+    } else {
+      modelname=": "modelname
+    }
+    print systemname, modelname
+  }
+}
+'
+
+echo Memory: `pstat -s | cut -d' ' -f6-`
+

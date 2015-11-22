@@ -1,0 +1,72 @@
+   Ok first thing you'll want to do after making the changes 'detailed' in
+README.setup is to change to the 'src' directory and type 'make'. This should
+run smoothly. IF you get some message saying it can't find gcc, you can TRY
+changing CC = gcc in Makefile to CC = cc, but that is likely to barf on the
+code.
+   IF all goes well type 'make install', this moves the programs into the 'bin'
+directory. There are two programs 'summink' (or whatever you changed it to in 
+the Makefile) and 'angel'. 'summink' is the talker itself (the server) and this
+can be run as is, or you can run 'angel', it will put the server up, and put
+it up again if the  server crashes for some reason. IF the sevrer keeps on
+crashing repeatedly in short periods of time, the angel will give up and quit.
+   NOTE: If you change the name of the 'summink' program be sure to update the
+exec calls in angel.c (line 193).
+
+   Once you're up and running and have gotten the 'admin' character setup its
+a good idea to read through the files doc/admin.doc doc/advanced.doc and
+doc/basic.doc. These document all the SU/Admin commands, they can be read
+from within the talker (help admin, advanced or basic) but its easier to do it
+using your fave editor or more (or less if you have it) from the unix command
+line.
+
+   Also, for your own peace of mind, comment out the code in plists.c that
+looks like:
+
+   if (!strcmp("admin", p->lower_name))
+   {  
+      p->residency = HCADMIN_INIT;
+   }
+
+In the supplied distribution this is lines 1022 to 1025. This is the code that
+creates the 'Admin' character and gives it the HARD CODED ADMIN privs. After
+you've created your own admin character and used 'Admin' to give IT Admin and
+HC Admin privs this piece of code can be a security risk (if the admin
+character gets deleted somehow, or if you're stupid enough to nuke it then
+name banish it). Its best to get rid of it.
+
+   A few things you need to know. If you want to bring the program down, don't
+forget to kill the angel first, otherwise it will just bounce straught
+back up *8-P.
+
+Backups
+=======
+
+Basically if the program receives a SIGUSR2 (i.e. kill -USR2 <process id>)
+it does the backups. These are carried out by scripts specified in the
+do_backup() function at the end of glue.c, you should create appropriate ones
+called daily.backup.pt.<number> where <number> is 1 for a script that copies all
+the files in the players, notes, and rooms directories to somewhere safe.
+Example ones are supplied in which you can just change a few paths as
+appropriate, you may need to edit these a bit more than that though.
+Tar is the best way to do this. The second script compresses the tar file and
+moves it into an appropriate place with other daily backups. With the script
+as is 5 daily back ups are kept, the oldest one being discarded once you have
+5. There is also a weekly backup script...
+   For all of this to work there is an entry you should have in your crontab
+file, edit this using 'crontab -e', and add the following entry...
+
+0 0 * * * /home/users/athan/summink/bin/trigger.backup
+
+adjusting it as necessary for where you keep the files. This triggers the
+backups at midnight EVERY day.
+  You will also want another line:-
+
+5 0 * * 0 /home/users/athan/summink/backup/weekly-backup
+
+To trigger the weekly backups at 5 past midnight every sunday morning.
+
+  You can of course change the whole backup strategy to suit your tastes, the
+key thing is that s SIGUSR2 is sent to the process to get it to do the 
+backups. Do *NOT* carry out backups any other way, you will end up with
+fargled files. The backup scripts are fairly well commented, so you shouldn't
+have a problem changing things to suit.

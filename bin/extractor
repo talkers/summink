@@ -1,0 +1,35 @@
+:
+# dump out all the superusers into one file, and all their emails into
+#   a second ... (it rocks)
+
+if [ $# -ne 3 ]
+then
+echo "Format $0 <player file> <new file> <file for emails>"
+exit
+fi
+
+if [ -f $2 -o -f $3 ]
+then
+echo "One of those files already exists !!"
+exit
+fi
+
+echo > $2
+
+for a in ADMIN SU PSEUDO
+do
+echo >> $2
+echo $a >> $2
+echo "-----" >> $2
+echo >> $2
+grep $a $1 >> $2
+echo >> $2
+done
+
+# For the emails now 
+
+cut -c23-62 $2 | grep @ > $3
+
+# Just for the hell of it
+
+chmod go-rwx $2 $3

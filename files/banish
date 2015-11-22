@@ -1,0 +1,13 @@
+# Banish file
+#
+# Use 	C for complete close
+# 	N for email registration (i.e. must have resident char)
+#
+# i.e a line like
+#
+# 137.73.*.* N
+# without the leading # will ban newbies from kcl...
+
+
+# Temp ban on redgum.ucnv.edu.au, newbie only
+#149.144.2.3 N

@@ -1,0 +1,16 @@
+Basic commands are:-
+
+su,se,su:     - Talk on su channel
+su_hi         - Toggle highlighting of the su channel (assuming hitells
+                is set)
+assist        - Inform a newbie you are a superuser willing to help them
+resident      - Make a newbie a resident
+confirm       - Check if a resident has set password and email
+drag          - Newbies only, boot them from the program
+splat         - Resident and newbie only, eject from program and ban them
+                for upto 5 mins
+list_su       - List currently logged on sus's
+list_new      - List the current newbies
+boot          - Boot someone from the beach
+warn          - Give an official warning to someone
+reset_session - Reset the session timer to 0.

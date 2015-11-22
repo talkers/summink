@@ -1,0 +1,1323 @@
+:general
+
+			   How to use help
+			   ---------------
+ It is hugely recommended that you read help pages 1 though 14 for a
+    quick guide on the commands available and general information.
+			 (Do help 1 ... etc)
+
+	       help index gives an index to pages 1-17
+
+	 help <command> now gives help on individual commands
+
+	Thanks to Batfink for the original helpfiles, Sparrow for 
+          the updated ones, and Xolf for some of the others...
+                (And Chris for the spell checking :)
+
+ 	      Any problems, comments or suggestions to:
+                 summink@somewhere or <the admin>
+
+:newbie
+			   How to use help
+			   ---------------
+ It is hugely recommended that you read help pages 1 though 14 for a
+    quick guide on the commands available and general information.
+			 (Do help 1 ... etc)
+	       help index gives an index to pages 1-15
+	   help <command> gives help on individual commands
+
+        Do 'help rooms' 'help lists' and 'help basic' to get a
+           basic overview of what some of the commands do.
+
+Look around and enjoy the place. If you would like a permenant account
+   then ask around for 'residency' and you'll usually find there's
+		 someone around who can help you out.
+
+:0,index
+
+				Index
+				-----
+
+	1	   - general communication
+	2	   - information commands
+	3	   - customisation commands
+	4	   - how to move around
+	5	   - list commands
+	6	   - news mode and commands
+	7   	- mail mode and commands
+	8   	- commands to check things
+	9   	- room mode and commands
+	10	   - more room commands
+	11	   - the editor, and associated commands
+	12-16	- miscellaneous bits that dont fit elsewhere
+	17	   - basic help and tutorial
+
+        Do 'help room' 'help list' and 'help basic' to get a
+           basic overview of what some of the commands do.
+
+:1,com,comms,communication,communicate
+
+			General Communication
+			---------------------
+
+  say (' ` ")  - say a message to people in the same room as you.
+  emote (: ;)  - emote an action to people in the same room.
+  remote (<)   - an emote , but to a particular person(s).
+  pemote (::)  - posessive emote (puts 's after your name).
+  premote (<:) - a pemote, but to a particular person(s).
+  shout (!)    - shout something to everyone on the program.
+  tell (>)     - tell a particular person(s) anywhere in the program.
+  whisper (=)  - whisper to a person(s) in the same room as you.
+  echo (+)     - echo to people in the same room as yourself.
+  recho (-)    - like echo, but to a particular person(s).
+  reply (])    - reply to a tell to several people.
+  ereply ([)   - as reply but for an emote.
+  converse     - a typing shortcut where everything you type will be
+		  'said' to the room you are in. Use with care.
+  think (~)    - express something as a thought to the room at large.
+  tf           - short form of 'tell friends'
+  rf           - short form of 'remote friends'
+  rt           - short form of 'remote <player(s)> thinks . o O ( <summin> )'
+
+:2,information,info
+
+			     Information
+			     -----------
+
+  who 		- lists who is currently on the program. (who 2 etc)
+  swho		- a brief version of 'who'
+  qwho/fwho     - show which of your friends are on. (see help list)
+  twho          - does a 'who' with titles, not session messages.
+  where		- lists where everyone (or a particular person) is.
+  with		- lists who a particular person is with.
+  hide		- make it so no-one will know where you are.
+  idle		- shows when someone (or everyone) last did something
+  idlemsg	- set a message to say why you're idle.
+  examine (x)	- show info about a person who is logged in
+  finger	- show info about someone who isnt logged in.
+  look (l)	- show the room you are in, and who is in it.
+  time		- show the local time
+  commands	- a list of every command you can do
+  privs		- a list of abilities you have.
+  grabable	- lists who you can grab.
+
+:3,customise,customisation
+
+			    Customisation
+			    -------------
+
+  title		- change the message after your name.
+  prefix	- change the message before your name.
+  description   - write a little description of yourself.
+  plan		- a message for when you're not on the program.
+  prompt	- set the normal prompt to something.
+  cprompt	- set the prompt as seen in converse mode.
+  password	- set your password
+  email		- set your email address
+  public	- make your email address public for everyone to see
+  gender	- change your sex
+  entermsg	- change the message people see when you enter a room
+  ghome		- toggle whether you get transed to your home
+		  when you log in.  
+  recap 	- change the capitalisation of your name
+  age		- set your age (0 turns off)
+  birthday	- set your birthday (0 turns off)
+
+:4,moving,move
+
+			    Moving Around
+			    -------------
+
+  go           - move to an adjacent room.
+  trans        - move to anyroom (if you know its id).
+  home         - go home.
+  visit        - visit a person in their home.
+  main         - go back to the main room.
+  leave        - same as main.
+  exits        - find out where you can 'go'
+  check room   - find out the name/id of the room you are in
+  grab         - grab someone into the same room as yourself.
+  join         - join someone in the room they are in
+
+:5,list
+
+			      Your List
+			      ---------
+
+  list		- view your list
+  clist		- clear entries in your list
+  slist		- set particular flags in particular entries
+  rlist		- reset particular flags in particular entries
+  tlist		- toggle particular flags in particular entries
+  flist         - force the flaglist to that specified
+  noisy,ignore, } 
+  inform,grabme,} toggle, set or reset flags according to which 
+  friend,bar,   } command is used on a particular person or 
+  invite,beep,	} persons in your list
+  block		}
+
+:6,news
+
+			      Using News
+			      ----------
+
+  check news	- see what news there is
+  news		- do a news command, or enter news mode
+
+Via the news command, or whilst in news mode
+
+  read		- read a news article
+  view 		- view all articles
+  (a)reply	- reply to a posting (via mail) (prepend 'a' for
+		  anonymous reply)
+  (a)post	- post an article
+  (a)followup	- post an article refering to a previous article
+  remove 	- remove one of your posts
+  end		- exit sub command mode
+
+:7,mail
+
+			      Using Mail
+			      ----------
+
+  check mail	- see whats in your mailbox
+  mail		- do a mail command, or enter mail mode
+
+Via the mail command, or whilst in mail mode
+  read		- read a piece of mail to you
+  view 		- view the mail you have received
+  (a)post	- post mail to a person or persons (prepend 'a' to
+		  post anonymously)
+  (a)reply	- reply to a piece of mail
+  delete	- delete mail you have received
+  inform	- toggle whether you get informed of new mail for you
+  sent		- show what mail you have sent.
+  remove	- remove mail that you have sent
+  noanon	- toggle whether you will be able to receive anonymous
+		  mail 
+  end		- exit sub command mode
+
+:8,checking,check
+
+			   Checking things
+			   ---------------
+
+  check mail	- view your mailbox
+  check news	- view the news
+  check exits   - view the exits in the room
+  check autos   - see the automessages in a room
+  check room    - list info about a room
+  check rooms   - list your rooms
+  check email   - see what your email address is set to
+  check wrap    - check the line/word wrap stats
+  check entry	- check the entry for your name, on someone elses list.
+  check flags   - checks how some things are set for you
+
+:9,room,rooms
+
+			   Stuff for Rooms
+			   ---------------
+
+  lock		- lock and unlock the room you are in.
+  room		- do a room command, or enter room mode
+  connect_room  - sets the room you will attempt to connect to
+  boot		- boots people out of your rooms
+
+Via the room command, or whilst in room mode
+  sethome	- make this room your home
+  lock		- lock a room
+  bolt		- close the room to all but you, and open it again
+  lockable	- make your room lockable by others apart from you
+  open 		- make it so anybody can enter a room
+  notify	- you get told when someone enters a room of yours
+  link		- link your rooms to another
+  linkable	- make it so other people can link to a room of yours
+  entrance	- opens a room so people can arrive there when they login
+  entermsg	- set the message that other people will see when
+		  someone leaves a room to enter this room
+  [+-]exit	- add or remove an exit to another room (+ to add, -
+		  to remove)
+
+			Continued on 'help 10' or 'help room-more'
+
+:10,room-more
+
+			   More Room Stuff
+			   ---------------
+
+Via the room command, or whilst in room mode
+  edit		- edit the description for the room.
+  id		- set the id of the room
+  name		- set the name of the room
+  info		- give some info about the room
+  check		- info about all your rooms
+  [+-]auto    	- add or remove an automessage (+ to add a message, -
+		  to remove one)
+  speed		- change the speed of the automessages
+  linkable	- make it so other people can link to a room of yours
+  autos		- check automessages, or turn them on or off
+  delete        - delete a room
+  create	- create a room
+  end 		- end sub command mode
+  
+:11,editor,edit
+
+			      The Editor
+			      ----------
+
+      Lines not starting with / or . are inserted into the text.
+
+  .del		- delete the current line
+  .-		- go back a line
+  .+		- go forward a line
+  .view		- see what you've written
+  .l		- view the current line
+  .g		- goto a line
+  .top		- goto the top
+  .bot		- goto the bottom
+  .wipe		- completely clear the buffer
+  .stats	- show some stats about the buffer
+  .quiet	- toggle whether you go into 'quiet' mode when editing 
+  .end		- quit the editor and KEEP the changes
+  .quit		- quit the editor and THROW AWAY any changes
+
+:12,misc,miscellaneous
+
+			    Miscellaneous
+			    -------------
+
+  blocktells	- ignore any tells to you.
+  earmuffs	- ignore any shouts.
+  quiet		- go quiet, ignore shouts and tells
+  linewrap	- turn off, or set the width of your terminal
+  wordwrap	- turn off, or set the largest word that will
+		  trigger wrapping
+  show		- show what sort of command, some text has originated
+		  from.
+  hitells	- high-lights any personal messages for you.
+  quit		- leave the program
+  list_su/lsu	- list the superusers currently on
+
+:13,disclaimer
+			      Disclaimer
+			      ----------
+
+          Here, the term 'administrators' refers to Whoosh
+
+ In no event will the administrators of this program be liable to you
+   or anybody else for any damages, including any general, special,
+ incidental, or consequential damages, arising out of use or inability
+   to use the program, or arising from the actions of you or other
+			users of the program.
+   This includes, but is by no means limited to, the fact that any
+ statement made by any user of the program is not necessarily the view
+	   of the administrators, nor supported by them.
+	
+     By using this program you are explicitly accepting the above
+  terms, for this and any future uses of the program, and that you
+indemnify the administrators against any damages arising in any way to
+    do with your, or anybody elses, use or misuse of the program.
+
+:14,rules
+   
+                                The Rules
+                                ---------
+
+                The name of the game is to enjoy yourself.
+
+       What you do on your own is private, but, should anything you do
+ be abusive or annoying to other users (this includes 'piping' or 'spamming'),
+     or at all offensive, then be prepared to bear the full brunt of the
+                               consequences.
+  Drug related conversation is in ALL WAYS banned from public rooms
+(see help drugs for more information on the rule). Smilarly, no exchange
+    or discussion of 'where to get' pirated software is permitted.
+ The actions of any administrator (that includes superusers) are beyond
+  argument. However, please note that NO-ONE on the program has the power
+      to  snoop, or intersect anything that happens in private.
+    You must set a valid email address or your user will not save.
+   Please stick to one resident user per person, it saves on disk
+ space. Anybody found having multiple characters, may have ALL their
+		        users brutally removed.
+
+:15,credits
+
+                             Credits
+                             -------
+
+         This program is based on the EW-too source code
+              which was coded 92/93 by Simon Marsh.
+      Also Chris Hughes did a lot of work on the code in 93,
+                  with it running as Foothills.
+
+  Then from December 1993 to May 1994 Athanasius did a *LOT* of work on
+                      the code as Surfers.
+
+   Also, thanks go to all the various spods who helped debug the
+  program, and provide valuable suggestions as to what it should do.
+
+
+
+:16,flags
+
+				Flags
+				-----
+
+  This is a list of the flags you can set for someone in your list,
+  also for everyone:
+
+  Noisy		- person can defeat blocktells and earmuffs
+  Ignore	- you will not see anything person does, and if they
+		  try a tell they will get your ignoremsg if set.
+  Inform	- you will see a message when person connects
+  Grab		- person can grab you
+  Friend	- person is a friend
+  Bar		- blocks person from entering your rooms, even if
+		  they are open.
+  Invite	- person is invited to your rooms
+  Beep		- your terminal will beep when person connects
+  Bloc		- blocks tells from person
+  Key		- gives person the key to your rooms, they can enter
+		  locked rooms and lock and unlock any room
+  Find		- person can find you even when hidden
+
+:17,basic,intro,tutorial
+
+                  WELCOME TO THIS TALKER V0.90
+                  ===========================
+
+OK, first a quick notation note: anything written <something> should
+be replaced by the value of <something>, eg "trans <owner>.<roomid>"
+becomes "trans nicolai.atrium" when you put in some specific values
+for <owner> and <roomid>.
+
+THIS TALKER is a place to meet people, hang out, and talk. Please respect
+other people, and treat them as you would anyone you might meet
+somewhere else. THIS TALKER is run by the admin(istrator)s, assisted by
+superusers (SUs). They're the people to talk with if you have problems
+or questions or suggestions.
+
+Unfortunately some people use This Talker to insult and offend others.
+This is about the only thing which is not allowed. Anyone doing so can
+expect to be warned and if they persist, banned from using the
+program. If you are the object of harassment in public, tell a
+superuser or admin and the person will be subject to punishment. If
+you are being severely harassed, use emergency scripting. "emergency
+<reason>" will script for 60 seconds all that happens. "emergency
+stop" will stop before that time. USE SPARINGLY. If you have a good
+reason noone will mind. If you don't, they will. Consider the
+emergency stop on a train.  You can also "ignore" a person (when
+resident), and you can always leave another character's rooms.
+
+Continued in basic2,intro2,tutorial2 and basic3, etc.
+
+:18,basic2,intro2,tutorial2
+
+THIS TALKER offers many communication commands. The basic one is "say", which
+is heard by everyone in the room; "tell <someone>" is only heard by
+'someone'. "emote" and "remote" are the corresponding action commands.
+"shout" is heard by everyone on the program, but can be ignored by 
+wearing "earmuffs". "tell" and "remote" can also be done to 'everyone'
+or 'friends', going to everyone on the program or to those you have
+named as 'friends' respectively. "echo" statements are used for
+general atmosphere; they appear with a + at the start.
+
+Residents have a title, prefix, plan and description to add to the
+atmosphere. Please try and set them to something. If everyone does a
+bit to add to the place, This Talker will become much more than the sum of
+its parts. Your prefix appears in front of your name when you do most
+things, your title appears in lists of people in rooms and so on, your
+description will be seen by anyone who "examine"s you.  "examine" will
+show info about someone who is online, "finger" will get a bit less
+info (but including the plan, unlike "examine" on anyone)
+
+People with permanent characters on This Talker are called residents. If
+you intend to use This Talker, it is much more comfortable to be a
+resident. Ask any superuser or admin for residency. You will need to
+supply your email address, which will remain private and visible only
+by admins unless you make it public. Note once you are resident your
+name cannot currently be changed. Being resident means only you can
+use the name you are resident under.
+
+THIS TALKER is divided into rooms. You arrive by default in the main room,
+the general gathering place. Hang out here to talk and just generally
+promenade. Residents have rooms of their own, and they can change the
+description, name, the message people see when someone goes to the
+room, and so on. Some rooms are open to all, some are only for those
+specifically invited. The command "bounce" will take you on a
+semi-random tour of open rooms. If you know the id of a room, you can
+do "trans <owner>.<roomid>" and get there if you are allowed in. Rooms
+may have exits, you can see with "exits" and you can go through them
+"go <exit name>". You can also "join" someone and "visit" their home
+room if you are allowed to. Read "help rooms" and "help rooms-more"
+for help on the room commands.
+
+:19,basic3,intro3,tutorial3
+
+Room descriptions, mail, and news use the editor. This is a line-based
+editor which is quite easy to use. Commands to the editor are entered
+on a blank line beginnging with a ".", so we have ".quit", ".top",
+etc. Read "help editor" BEFORE using mail, news, or room edit.
+
+Each resident has a list. People can be put on it, and then be flagged
+as friends, as invited, as to be ignored, that a message should be
+displayed when they login ("inform") and others. Lists are an
+important part of This Talker. Read "help list" to find out how to
+maintain your list.
+
+Most any numerical limits on a character in the program can be changed
+on request by an admin, if you can justify it.
+
+By Nicolai with a little help from Psmith :-)
+
+:help,man,?
+
+  help,man 	- Gives help on a topic. <topic> can be a word,
+		  typically a command or a number, for the more
+		  general help pages. Can be abbreviated to ?
+
+  Syntax: help <topic>  or  man <topic>
+
+:user_list
+
+  user_list	- This is a comma separated list of users, like
+		  joe,fred,sally,sue
+
+:pager,page
+
+			    The Pager
+			    ---------
+
+  b or p	   - Back 1 page.
+  f or n	   - Forward 1 page.
+  t 		   - Go to the top of what is being paged.
+  q  		   - Quit.
+  
+          Anything else will just re-print the same page.
+
+:nopager
+
+  nopager	- Toggles whether you get paged output or not.
+		  Read 'help pager' for help on how to use it.
+
+  Syntax: nopager
+
+:|,pipe
+	 A way of directing text to several different people.
+
+	  Format: <emote/shout/say/echo> <msg> | <user_list>
+	    (see 'help user_list' for help on <user_list>)
+
+        Example     emote smiles at you. | batfink,burble
+
+	You will see : 
+         	You Emote : Spang smiles at Batfink and Burble.
+
+	Batfink sees (as a personal message)
+		Spang smiles at you and Burble.
+
+	Burble sees (as a personal message)
+		Spang smiles at Batfink and you.
+
+	Everyone else in the room sees (as a room message) :
+		Spang smiles at Batfink and Burble.
+:say,',`,"
+  
+  say (' ` ") 	- say a message to people in the same room as you.
+		  (see also 'help |'). Can be abbreviated to ' or
+		  ` or "
+
+  Format: say <msg>
+
+:emote,:,;
+
+  emote (: ;)	- emote an action to people in the same room.
+		  (see also 'help |')  Can be abbreviated to : or ;
+
+  Format: emote <msg>
+  
+:remote,<
+
+  remote (<) 	- an emote , but to a particular user_list.
+		  (see 'help user_list' for help on <user_list>)
+		  Can be abbreviated to <
+
+  Format: remote <user_list> <msg>
+
+:pemote,::,;;
+
+  pemote (:: ;;) - posessive emote (puts 's after your name).
+		  Can be abbreviated to ::
+  Format: pemote <msg>
+
+:premote,<:
+
+  premote (<:)	- a pemote, but to a particular user_list.
+		  Can be abbreviated to :<
+
+  Format: premote <user> <msg>
+
+:shout,!
+
+  shout (!)	- shout something to everyone on the program
+		  (see also 'help |')  Can be abbreviated to !
+		  
+  Format: shout <msg>
+
+:tell,>
+
+  tell (>)	- tell a particular user_list anywhere in the program.
+		  (see 'help user_list' for help on <user_list>). Can
+		  be abbreviated to >
+
+  Format: tell <user_list> <msg>
+
+:exclude
+
+  exclude	- say something to everyone in a room except those
+		  specified. Those excluded will be told you said
+		  something about them.
+
+  Syntax: exclude <user_list> <msg>
+
+:reply,]
+
+  reply	(])	- tell the same set of users, more than 1, that includes
+		  you, that were the object of a previous tell or remote,
+		  <msg>. Can be abbreviated to ]
+
+  Syntax: reply <msg>
+
+:ereply,[
+
+  ereply ([)	- remote to the same set of users, more than 1, that
+		  includes you, that were the object of a previous tell
+		  or remote, <msg>. Can be abbreviated to [
+
+  Syntax: ereply <msg>
+
+:whisper,=
+
+  whisper (=)	- whisper to a user_list in the same room as you.
+		  (see 'help user_list' for help on <user_list>)
+		  Can be abbriviated to =
+
+  Format: whisper <user_list> <msg>
+
+:think
+
+  think		- Express some comment as a thought to the room at
+		  large.
+
+  Syntax: think <msg>
+
+:echo,+
+
+  echo		- echo to people in the same room as yourself.
+		  (see also 'help |'). Can be abbreviated to +
+
+  Format: echo <msg>
+
+:recho,-
+
+  recho		- like echo, but to a particular user_list.
+		  (see 'help user_list' for help on <user_list>)
+		  Can be abbreviated to -
+
+  Syntax: recho <user_list> <msg>
+
+:seeecho
+
+  seeecho	- causes echoes to be prefixed with the name of the
+		  person who did them.
+
+  Syntax: seeecho
+
+:converse
+
+  converse	- a typing shortcut where everything you type will be
+		  'said' to the room you are in. To leave 'converse' 
+		  mode type '/end'.
+		  Normal commands can be used if prepended by /
+		  eg '/emote smiles.'
+
+  Format: converse
+
+:end
+
+  end		- ends commands in a submode and returns to normal mode.
+		  Gets you out of mail, room, etc., modes.
+:who
+
+  who 		- lists who is currently on the program. (who 2 etc)
+
+:swho
+
+  swho		- a brief version of 'who'
+		  'swho -' will give names only.
+
+:qwho,fwho
+
+  qwho/fwho     - show which of your friends are on. (see help list)
+
+:list_su,lsu
+
+  list_su	- Shows you the currently logged in and on_duty
+		  superusers.
+
+  Syntax: list_su
+
+:twho
+
+  twho          - shows a 'who' with titles, rather than session messages.
+
+:where
+
+  where		- lists where everyone (or a particular user) is.
+		  You can also do "where everyone" and "where friends"
+
+  Format: where <user>
+
+:with
+
+  with		- lists who a particular user is with.
+
+  Format: with <user>
+
+:hide
+
+  hide		- make it so no-one will know where you are.
+
+:idle
+
+  idle		- shows when someone (or everyone) last did something
+
+  Syntax: idle [<user_list>]
+
+:save
+
+  save		- saves your character lest something nasty happen.
+		  It will also be saved when you use the quit command,
+		  when the program shuts down, hopefully if it crashes,
+		  and when certain important things happen to it, BUT NOT
+		  IF YOU MERELY DISCONNECT.
+
+  Syntax: save
+
+:wake
+
+  wake		- Attempt to wake someone. Sends them a message and a
+		  somewhat obnoxious set of beeps.
+
+  Syntax: wake <user>
+
+:session
+
+  session	- Sets the session. This is for atmosphere, amusement
+		  and as a discussion topic. Please set a comment,
+		  however trivial, using "comment". Note all users see
+		  a message when the session is changed.
+
+  Syntax: session <whatever>
+
+:comment
+
+  comment	- sets a one-line comment to the session topic. Please
+		  set one when the session changes, even if it's
+		  completely trivial.
+
+  Syntax: comment <msg>
+
+:seesess
+
+  seesess 	- Shows you (optionally page <n>) of the session comments.
+
+  Syntax: seesess [<n>]
+
+:motd
+
+  motd		- displays the message of the day. Read this whenever you
+		  login, it will contain any important announcements.
+
+  Syntax: motd
+
+:idlemsg
+
+  idlemsg <reason> - set a message to say why you're idle.
+		     eg idlemsg is off to the loo.
+
+  Then in the places that the idle message shows up people will see:-
+
+       <your name> is off to the loo.
+
+		This will only last until you next type a command, even
+		if it is not a valid one.
+
+:ignoremsg
+
+  ignoremsg	- sets the message people you are ignoring will
+		  receive when they try a tell or remote.
+
+  Syntax: ignoremsg <msg>
+
+:invites
+
+  invites	- lists those people currently logged in from whom
+		  you have an invite.
+
+  Syntax: invites
+
+:iacgs
+
+  iacga		- This controls whether you get prompt change messages
+		  via the telnet protocol. These can be used by a
+		  frontend to display an appropriate prompt.
+		  Some telnet clients have problems with this, so it
+		  can be switched off. If it ain't broke, don't fix it
+
+  Syntax: iacga
+
+:examine,x
+
+  examine (x)	- show info about a user who is logged in
+
+  Format: examine <user>  or
+          x <user>
+
+:finger
+ 
+  finger	- show info about someone who isn't logged in.
+
+  Format: finger <user>
+
+:look,l
+
+  look (l)	- show the room you are in, and who is in it.
+		  Can be abbreviated to l
+
+:time
+
+  time		- show the local time and a couple of stats.
+
+:commands
+
+  commands	- a list of every command you can do
+
+:privs
+
+  privs		- a list of abilities you have.
+
+:grabable
+
+  grabable	- lists who you can grab.
+
+:recap
+
+  recap 	- Recapitalise your name.
+
+  Syntax: recap <new capitalisation>
+	eg. recap NiCOLaI
+
+:title
+
+  title		- change the message after your name.
+
+  Format: title <msg>
+
+:seetitle
+
+  seetitle	- Toggles whether you see session comments or titles
+		  in the who list.
+
+  Syntax: seetitle
+
+:prefix
+
+  prefix	- change the message before your name.
+
+  Format: prefix <msg>
+
+:noprefix
+
+  noprefix	- toggles whether you will see prefixes or not.
+
+  Syntax: noprefix
+
+:description,desc
+
+  description   - write a little description of yourself.
+
+  Format: description <msg>
+
+:plan
+
+  plan		- a message for when you're not on the program.
+
+  Format: plan <msg>
+
+:prompt
+
+  prompt	- set the normal prompt to something.
+
+ Format: prompt <msg>
+
+:cprompt
+
+  cprompt	- set the prompt as seen in converse mode.
+		  (when already in converse mode use /cprompt		
+
+  Format: cprompt <msg>
+
+:password
+
+  password	- set your password
+
+:email
+
+  email		- set your email address
+
+  Format: email <address>
+
+:public
+
+  public	- make your email address public for everyone to see
+		  (toggles between private and public)
+
+:gender
+
+  gender	- change your sex
+
+  Format: gender m/f/n
+
+:entermsg
+
+  entermsg	- change the message people see when you enter a room
+
+  Format: entermsg <msg>
+
+:ghome
+
+  ghome		- toggle whether you get transfered to your home
+		  when you log in.  
+
+:connect_room
+
+  connect_room	- set the room you arrive in when you login.
+		  The owner must have set it as an entrance.
+  Syntax: connect_room name.roomid
+
+:capitalise
+
+  capitalise	- change the capitalisation of your name
+
+  Format: capitalise <your name>
+
+:age
+
+  age		- set your age (0 turns off)
+
+  Format: age <number>
+
+:birthday
+
+  birthday	- set your birthday (0 turns off)
+
+  Format: birthday <day>/<month>(/<year>)
+
+:go
+
+  go		- move to an adjacent room.
+
+  Format: go <roomname>
+
+:trans
+
+  trans		- move to anyroom (if you know its id).
+
+  Format: trans <userid.roomid>
+
+:bounce
+
+  bounce	- moves you to another mostly randomly chosen open
+		  room. This is a nice way to see more of THIS TALKER.
+
+  Syntax: bounce
+
+:home
+
+  home		- go to your home.
+ 
+:colony
+
+  colony	- This takes you to the This Talker nudist colony, a place
+		  to mess around. You can do most anything here, as
+		  long as you do not involve people in other rooms.
+		  Party on, folks!
+
+  Syntax: colony
+
+:visit
+
+  visit		- visit a user's home.
+
+  Format: visit <user>
+
+:hilltop
+
+  hilltop	- takes you to the hilltop.
+
+:main
+
+  main		- go back to the main room.
+
+:leave
+
+  leave		- go back to the main room.
+
+:exits
+
+  exits		- find out where you can 'go' from the current room.
+
+:grab
+
+  grab		- grab someone into the same room as yourself.
+
+  Format: grab <user>
+
+:boot
+
+  boot		- boot someone out of your room, back to the main room.
+
+  Syntax boot <user_list>
+
+:join
+
+  join		- join someone in the room they are in
+
+  Format: join <user>
+
+:cls
+
+  cls		- clears the screen. You must have a terminal type set
+		  for this.
+
+  Syntax: cls
+
+:clist
+
+  clist		- remove someone's entry from your list
+
+  Format: clist <user>
+
+:slist
+
+  slist		- set particular flags in particular entries
+		  (see 'help user_list' for help on <user_list>)
+
+  Format: slist <user_list> <flag list>
+
+:rlist
+
+  rlist		- reset particular flags in particular entries
+		  (see 'help user_list' for help on <user_list>)
+
+ Format: rlist <user_list> <flag list>
+
+:tlist
+
+  tlist		- toggle particular flags in particular entries
+                  (see 'help user_list' for help on <user_list>)
+
+  Format: tlist <user_list> <flag list>
+
+:flist
+
+  flist		 - force the flaglist to that specified
+                  (see 'help user_list' for help on <user_list>)
+
+  Format: flist <user_list> <flag list>
+
+:bug
+
+  bug		- Report a bug. Please be as specific as possible.
+		  Your report will be logged and dealt with.
+
+  Syntax: bug <whatever the sodding bug is>
+
+:noisy
+
+  noisy         - Allows you to hear a user through 'blocktells'
+   		  'ignore' and 'block'
+                  (see 'help user_list' for help on <user_list>)
+
+  Format: noisy <user_list>
+
+:find
+
+  find		- Allows someone on your list to find out where
+		  you are even when you are hidden.
+
+  Syntax: find <user_list>
+
+:ignore 
+
+  ignore	- Allows you to 'ignore' someone.
+                  (see 'help user_list' for help on <user_list>)
+
+  Format: ignore <user_list>
+
+:inform
+
+  inform	- Informs you when <user> logs in.
+                  (see 'help user_list' for help on <user_list>)
+
+  Format: inform <user_list>
+
+:grabme
+
+  grabme 	- Allows yourself to be 'grab'bed by someone
+		  else.
+                  (see 'help user_list' for help on <user_list>)
+
+  Format: grabme <user_list>
+
+:friend
+
+  friend	- Puts your 'friend' on the checklist for
+		  qwho/fwho. See also qwho or fwho
+                  (see 'help user_list' for help on <user_list>)
+
+  Format: friend <user_list>
+
+:friends
+
+  friends	- This will, with some commands, do the command to
+		  all those on your list as friends. You replace
+		  the usual <user_list> with "friends", eg
+		  tell friends "hello folks" or
+		  finger friends
+
+:everyone
+
+  everyone	- This will, with some commands, do the command to
+		  everyone. You replace the usual <user_list> with
+		  "everyone", eg
+		  tell everyone how do I smoke kippers?
+		  Can also be a list entry, eg "inform everyone".
+
+:bar
+
+  bar		- Bars someone from entering your rooms. 
+		  Once barred, this user cannot enter, no
+		  matter what.
+                  (see 'help user_list' for help on <user_list>)
+
+  Format: bar <user_list>
+
+:invite
+
+  invite 	- Allows the invited user to enter your
+	 	  room, when you have set it to invites only,
+	 	  or when it is open to all.
+                  (see 'help user_list' for help on <user_list>)
+
+  Format: invite <user_list>
+
+:key
+
+  key		- Gives a person the keys to your rooms. They can
+		  enter locked rooms of yours and (un)lock them.
+
+  Syntax: key <user>
+
+:beep
+
+  beep		- Sends a beep to your terminal when <user>
+		  logs in.
+                  (see 'help user_list' for help on <user_list>)
+
+  Format: beep <user_list>
+
+:block
+
+  block		- Stops a user from 'tell'ing to you.
+                  (see 'help user_list' for help on <user_list>)
+
+  Format: block <user_list>
+
+:lock
+
+  lock		- lock the room you are in. This means only you and
+		  keyholders can enter.
+
+:blocktells
+
+  blocktells	- ignore any tells to you.
+
+:earmuffs
+
+  earmuffs	- ignore any shouts.
+
+:quiet
+
+  quiet		- go quiet, ignore shouts and tells
+
+:linewrap
+
+  linewrap	- turn off, or set the width of your terminal
+
+  Format: linewrap off/<term width>
+
+:wordwrap
+ 
+  wordwrap	- turn off, or set the largest word that will
+		  trigger wrapping
+
+  Format: wordwrap off/<max word size>
+
+:show
+
+  show		- show what sort of command, some text has originated
+		  from. 'show' on it's own will tell you what it which
+		  options(below) will be shown to you.
+
+  Format: show echo,tell,room,shout,autos
+
+:hitells
+
+  hitells	- high-lights any personal messages for you.
+		  Terminal types available : xterm, vt220, vt100,
+		  vt102, sun, ansi, wyse-30, tv1912, adm, hp2392
+		  If in doubt, vt100 is often a good choice.
+
+  Format: hitells <termype/?/off>
+
+:quit
+
+  quit		- leave the program
+
+:resident,residency
+
+  To obtain RESIDENCY ask a registered user if he/she/it knows of a SU who
+  can, or failing that, shout. Someone will eventually hear your cry...
+
+  Residents have rooms of their own, which they can decorate as they wish,
+  a saved list and access to more commands than a newbie (non-resident).
+  Also much personal data about them can be set and will be saved. On
+  a more basic level, it means noone else can use your name...
+
+:emergency
+
+  emergency 	- If there is a problem with someone on the program
+		  ie, they are being rude/abusive, and there is no
+		  superuser to take action against the offending 
+		  party, This command makes a script of everything
+		  that happens for the next 60 seconds.
+		  It is implemented by typing 'emergency'
+		  To which the program replies:
+You must give a reason for starting emergency scripting as an argument.
+(And the reason better be good ...)
+
+		  Then you enter a reason why you started the scripting. eg:
+	Abusive behaviour from Spang
+
+		  For the next 60 seconds, anything that anybody says will
+		  be logged to a file, however, you may stop scripting
+		  at any time by typing 'emergency stop'.
+
+IF THIS COMMAND IS ABUSED, BE PREPARED TO TAKE THE CONSEQUENCES!!!!!
+
+:dynamic
+
+		Dynamic rooms
+
+  OK, you all want to know about this:
+Basically every previous version of This Talker has had all the rooms of
+all residents loaded into memory at once. This uses rather a lot of
+memory. Sooooo Burble wrote some code to load the rooms as needed, and
+this has just been added. This involved major changes to large chunks
+of the room code. If anyone gets any strange behaviour or bugs
+associated with rooms, use bug to describe the problem as accurately
+as possible, including where you were and what you did, and what
+happened. Also tell any SU or admin around. If you can send us a
+script of what happened, that would be nice. Email such, and lengthy
+bug reports in general, to summink@somewhere
+
+:wwkban
+
+  Warwick University bans 'games' such as THIS TALKER from 9am to 6pm weekdays.
+THAT is why you cannot login to THIS TALKER at those times, so don't complain to
+us.
+
+:copyright
+
+  Some people have been posting material, including but not limited to
+songs and poems, written by others, and claiming they wrote it.
+THIS IS ILLEGAL and also morally bankrupt. Please refrain from doing
+this.
+
+  If you must post other's works, make sure you attribute them properly.
+This is not the primary purpose of the news on This Talker, so original
+works would be preferred.
+
+  Exchange or discussion of 'where to get' WareZ, that is, pirated
+software, is strictly forbidden. Anyone engaging in such can expect
+to have their character removed and any information we have about the,
+may well be passed to the police. Should the police investigate we will
+cooperate. The survival of THIS TALKER comes way above your personal
+wellbeing! You have been warned!
+
+:expiry
+
+	Character timeout/expiry.
+
+If a character has not logged in for some time, it may be
+automatically deleted by the program. So if you do not wish this to
+happen, either make sure you use This Talker regularly, or ask for
+no_timeout. This can be granted by an admin if there are special
+circumstances that will keep you off the net for a while outside
+vacations, but when you will definitely be back on This Talker in the
+medium future.
+
+The expiry feature is disabled during and around vacations so you
+need not worry if you can only login during term time.
+
+:clipper
+                        Information on Clipper
+                        ======================
+
+                         *THIS IS IMPORTANT!*
+ 
+ For those of you who don't know, Clipper is a proposal circulating in the
+ US government right now whereby the government will require that all methods
+ of encrypting data (including e-mail) have a 'backdoor' of sorts so that the
+ government will be able to decrypt and read the data.  As you may have
+ guessed, this is an infringement on your right to privacy.
+ 
+  To sign on a petition against the Clipper proposal, send a message to:
+
+      Clipper.petition@cpsr.org
+
+ with the message "I oppose Clipper" (no quotes)
+
+ You will receive a return message confirming your vote.
+
+ For more information ftp to cpsr.org, login as ftp with your email address
+ as the password and have a look at the files in /cpsr/privacy/crypto/clipper.
+
+:drugs
+
+				Drugs
+				-----
+
+ All drug-related discussion in all public rooms is banned. Drugs referrs to
+ any substance defined as illegal to sell or purchase under US or UK law.
+
+ No user of this program may may in any way attempt to sell or purchase drugs
+ using this program as a medium. Anyone found doing so will have their
+ character banished, and they will be banned from ever using this program
+ again.
+ 
+ There will be no discussions on this rule, it is absolute, and important to
+ the future existance of this program.
+

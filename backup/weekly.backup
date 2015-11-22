@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# The directory the backups go in
+BACKUPS=/tmp/summink/backups
+# The suffiz of a backup file tar.gz for tar'd and gzip'd files
+SUF=tar.gz
+
+echo -n "Weekly Backup started at " >> logs/backup.log
+echo `date` >> logs/backup.log
+
+# The last numnber of the list '4 3 2 1' or whatever plus one is the
+# number of weekly backups you'll have at any one time (once they're filled)
+for i in 4 3 2 1
+do
+   if [ -f $BACKUPS/weekly-backup.$i.$SUF ]; then
+      j=`expr $i + 1`
+      mv -f $BACKUPS/weekly-backup.$i.$SUF $BACKUPS/weekly-backup.$j.$SUF
+   fi
+done
+
+cp $BACKUPS/weekly-backup.$SUF $BACKUPS/weekly-backup.1.$SUF
+echo -n "Weekly Backup completed at " >> logs/backup.log
+echo `date` >> logs/backup.log

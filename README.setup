@@ -1,0 +1,83 @@
+Welcome to the EW-Too code in hacked around version used for 'Surfers'.
+ I've decided to call it 'Summink' for want of a better phrase *8-P
+This code is 'uptodate' as of about the start of September 1994.
+
+(Its now May 1995, I've fixed a *few* bugs, but lots still exist -Ath)
+
+First off. This code is in *NO* way supported by anybody who has ever coded
+it. You use it entirely at your own risk, and in doing so agree to indemnify
+ALL the people who have contributed coding time against any proceedings that
+may result due to the use or misuse of this code. We are *NOT* responsible!
+
+
+ Having said that, I hope you have fun running this code. But please try and
+get 'official' permission to run it. I'd hate you to get chucked out of uni/
+the sack/put in jail for running this code *8-P.
+
+ There are quite a few changes you'll need to make to personalise your talker.
+Chief among these is to edit the rooms files in the files dir, these are:-
+
+       summink.rooms
+       boot.rooms
+       system.rooms
+
+ The rooms that you *must* have are:-
+ 
+   the void
+   the jail
+   the boot room
+   the main room
+   the SU's comfy room
+
+ You can change the names of these and the owner names, BUT you *must* update
+the code accordingly otherwise it will crash horribly at bootup or later on
+when someone tries to go to one of the rooms.
+ The bits of code to update are:-
+
+ The Void - admin.c line 5010
+            room.c lines 1863,1872,3642
+ The Jail - admin.c line 5020
+            plists.c line 1310
+            room.c lines 1837,3457,3479
+ The Boot room - room.c lines 1824,1825,1831,1832,1843,2761,2785,2791
+ The Main room - admin.c 5030
+                 config.h 56
+                 room.c line 2391
+ The SU's comfy room - admin.c 4888
+                       room.c 1839
+
+Of course, if you change the code the line numbers will change...
+There are similar changes to make if you want to change the names of the files.
+
+ You will also want to edit the .msg files in the files dir, and all the files
+in the doc directory to personalise them.
+
+ Finally there are a few bits of code you'll want to change for the login/out
+messages etc.
+
+   Login messages - plists.c 1354 and 1358
+   Logout messages - parse.c 391
+   'leave' command - clist.h 447
+   Time command - commands.c 925
+
+There may be others that I've missed.
+
+The one thing you WILL want to do is login in as 'admin' straight away, and
+set a password and email address on it. This character is created with 
+FULL admin status, and can be used to grant such status to the characters
+that will actually be running the program.
+
+You also need to edit src/config.h to set the directory that all these files
+live in, specifically the bin, soc, files and logs directories. You can also
+change the default port for the talker to run on. If you are not on a SunOS
+system then you may well have to change some of the #define's at the start of
+config.h
+
+At some point you'll want to edit all the '.msg' files in the files directory
+to contain the name of YOUR talker and the email address for queries.
+
+If you want to do *that* or any other fiddling I suggest you sit down and 
+LEARN the code and how to use gdb (hope your system has it *8-P ).
+
+
+-Athanasius

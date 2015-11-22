@@ -1,0 +1,2 @@
+#!/bin/sh
+kill -USR2 `cat /home/users/athan/summink/junk/PID`

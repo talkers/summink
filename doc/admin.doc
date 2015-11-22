@@ -1,0 +1,184 @@
+(*) marked commands are not used a lot, technical stuff generally.
+[<variable>] means <variable> is optional.
+
+NB: A 'note' is an item of mail or news.
+
+barge:
+    barge <player>|<roomid>
+       enables you to go anywhere regardless of invites, bolts, et al.
+       barge name is like visit name, barge owner.roomid is like trans
+
+bedit:
+       edit the online site ban file. add a comment ( line starts # )
+       with the site name, then the site number with * for a range, like
+       137.205.*.* for all warwick machines, then a space and N for no
+       newbies and C for complete closure.
+       This *IS* saved back to disk immediately.
+
+blankpass:
+    blankpass <user> [<password>]
+       blanks <user>'s password, optionally to a specific value.
+
+blank_email:
+    blank_email <user> [<addr>]
+       blanks their email. beware of blanking to null email and then
+       confirming or otherwise setting NO_SYNC on them
+
+check:
+   does more then check for an SU
+      updates - Letters not yet saved physically to disk after updates
+      email - List of emails of those logged on?
+      rooms - Can do on another person
+      exits - Can do on any room
+      list  - Can check another's list
+      info  - List all the info about a player (very useful)
+      flags - obvious
+      res_list - Errr
+      mails - Check another's mail
+
+chlim_<a limit>:
+    Change limits on a player. chlim_<whatever> <whoever> <new_limit>
+
+    chlim_mail - How many mails can be sent by a player can exist at a time.
+    chlim_room - How many rooms a player cna own.
+    chlim_exit - How many exits a player's rooms can have each.
+    chlim_auto - How many autos a player's rooms can have each.
+    chlim_list - How many entries a player's list can have.
+
+dump:
+    Dump all notes to disc. (*)
+
+dfstats:
+    Stats on the dynamic rooms. pauses the server a few secs.
+    When the fragmentation reaches about 5% run defrag...
+
+defrag:
+    Defragments the dynamic rooms. should be done once a week or so or when
+    the fragmentation reaches 5%. Pauses the Talker for ~30 secs
+
+dtk, dtb:
+    debug info for the dynamic rooms. DO NOT TOUCH. they kill the pager
+    summat awful. (*)
+
+grabable:
+    This lists all the people with grabme set for you. You can however
+    grab anyone. BEWARE grab everyone
+
+grant:
+    grant [<user> <flags>]
+    Grant some priv. Grant by itself lists them. Actually they are more of a
+    subset of saved flags so you can grant banished et al.
+
+list_notes:
+    Lists some note stats, god knows what. (*)
+
+list_all_notes:
+    Allocation stats for all the notes. boring. (*)
+
+list_res:
+    List_res <letter>
+    Lists all residents beginning with <letter>.
+
+lag:
+    lag <person> <time>
+    Makes the <person> have no output and their input do nothing for <time>
+    minutes.A 0 to unlag them before time...
+
+make:
+    make <name> <email> <password>
+    Makes a new resident with email and password as supplied, without
+    anyone of that name needing to be logged on. 
+    Best used for the emailed registrations.
+
+malloc:
+    Stats on memory allocation. msot important is the arena size.
+    If this gets to much more than 3.5MB start thinkgin about using better
+    code *8-P. (like something that is completely dynamic, hey guess what?
+    this message was written by Athanasius *8-P )
+
+mindseye:
+    Works for any place. mindseye owner.roomid
+
+netstat:
+    Stats on the state of the net traffic to/from the talker.
+    Use it to prove a talker has no more effect than an ftp session on net
+    traffic *8-P
+
+port:
+    Obselete code. Was used for reading in old style player files from a 
+    previous version of EW code (I think -Athanasius).
+
+remove:
+    Used to remove privs, see grant for details.
+
+rm_move:
+    rm_move <player> [<time>].
+    Makes player stick to the ground for <time>.
+    They can't go, home, leave or be grabbed etc.
+
+rm_note:
+    Remove some particular note. (*)
+
+restore:
+    restore <letter>.
+    This re-reads that set of players from disk. (*)
+
+reload:
+    Reload reloads the messges (login banner, motd etc see the files dir)
+    and help, but not the system rooms.
+
+relink:
+    Use at your own peril! IT changes the links on a given note, could
+    totally spam up the notes system, or fix it if you know what you're
+    doing.
+
+recount:
+    Recounts the number of news articles. Use if news goes screwy.
+
+reset_sneeze:
+    reset_sneeze <person> [<time>]
+    Changes the sneeze timeout on a person, you can remove it or make 
+    it rather large...
+
+shutdown:
+    shutdown <time> [<reason>]
+    Sets the program to shutdown <time> seconds later. If you give a reason
+    that will be printed as the actual shutdown takes place, if not a default
+    is used.
+    If the angel is running you'll bounce straight back up.
+
+sync:
+    sync <letter>
+    Syncs all pfiles for chars beginning <letter> to disc.
+
+syncall:
+    Syncs all pfiles to disc. forks so the server ought to keep running
+
+validate_email:
+    validate_email <person>
+    Sets <person>'s email to be nothing yet valid. use with care.
+    We have no handle on the emailless.
+
+view_note:
+    views a note, on a good day downhill with a following wind. (*)
+
+vlist:
+    vlist <person> [<entry>]
+    Views the person's entire list. Or with an <entry> supplied, just 
+    that entry.
+
+vlog:
+    vlog [<log>]
+    Views a log. With no argument gives a list of viewable logs.
+    This is best done within unix really.
+
+wall:
+    wall <message>
+    This is what produces the:-
+
+    <foo> screams -=> summink <=-
+
+    messages. Gets through to ANYONE connected.
+
+with:
+    With is not foiled by being hidden when you're Admin.
